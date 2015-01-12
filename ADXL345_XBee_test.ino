@@ -232,7 +232,6 @@ void loop() {
   // Timestamp in milliseconds since program started
   // x-axis acceleration
   // y-axis acceleration
-  // z-axis acceleration (only display, don't send)
   // speed
   // distance
 
