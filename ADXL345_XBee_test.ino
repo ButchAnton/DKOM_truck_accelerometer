@@ -144,7 +144,7 @@ void setup() {
 
 }
 
-// Sample the accelerometer five times, and then take
+// Sample the accelerometer ten times, and then take
 // the average the five readings.  Invert the sign
 // and call this the steady state of the sensor.
 // Add it to raw readings to get "true"
