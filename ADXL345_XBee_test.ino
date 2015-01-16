@@ -49,6 +49,13 @@ THE SOFTWARE.
 #include <SoftwareSerial.h>
 #include <stdio.h>
 
+// Name the device.  I wish there was a way to get a unique
+// identifier from the Arduino so that we didn't have to do
+// this cheezy hack.
+
+// #define DEVICE_NAME "Silver"
+#define DEVICE_NAME "Green"
+
 // Reporting interval for data in milliseconds.
 
 #define REPORTING_INTERVAL (100)
@@ -169,6 +176,7 @@ void calculateOffset() {
     // Send some marker output to the Xbee radio
     // so that we know we just calibrated.
 
+    Serial.print(DEVICE_NAME); Serial.print(DATA_SEPARATOR);
     Serial.print(0); Serial.print(DATA_SEPARATOR);
     Serial.print(0.0); Serial.print(DATA_SEPARATOR);
     Serial.print(0.0); Serial.print(DATA_SEPARATOR);
@@ -229,12 +237,14 @@ void loop() {
 
   // Display and send the following data:
   //
+  // Device identifier
   // Timestamp in milliseconds since program started
   // x-axis acceleration
   // y-axis acceleration
   // speed
   // distance
 
+  Serial.print(DEVICE_NAME); Serial.print(DATA_SEPARATOR);
   Serial.print(timeInMilliseconds); Serial.print(DATA_SEPARATOR);
   Serial.print(corrected_ax); Serial.print(DATA_SEPARATOR);
   Serial.print(corrected_ay); Serial.print(DATA_SEPARATOR);
